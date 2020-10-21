@@ -27,17 +27,37 @@ const GetPostById = async (req, res) => {
 
 const CreatePost = async (req, res) => {
   try {
-  } catch (error) {}
+    const newPost = new TravelLog({ ...req.body, user_id: req.params.user_id })
+    newPost.save()
+    res.send(newPost)
+  } catch (error) {
+    throw error
+  }
 }
 
 const DeletePost = async (req, res) => {
   try {
-  } catch (error) {}
+    const post = await TravelLog.findById(req.params.post_id)
+    await Comment.deleteMany({ _id: { $in: post.comments } })
+    res.send({ msg: 'Post deleted' })
+  } catch (error) {
+    throw error
+  }
 }
 
 const UpdatePost = async (req, res) => {
   try {
-  } catch (error) {}
+    const updatedPost = await TravelLog.findByIdAndUpdate(
+      req.params.post_id,
+      {
+        ...req.body
+      },
+      { new: true, useFindAndModify: false }
+    )
+    res.send(updatedPost)
+  } catch (error) {
+    throw error
+  }
 }
 
 module.exports = {
