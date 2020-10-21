@@ -1,0 +1,21 @@
+.signup {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup form {
+  justify-content: space-around;
+
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 2em;
+  height: 50%;
+  width: 50%;
+  padding: 3em;
+}
+
+.signup form button {
+  cursor: pointer;
+}
