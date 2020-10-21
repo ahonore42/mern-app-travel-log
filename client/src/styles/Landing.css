@@ -5,7 +5,6 @@
 
 .landing-page .left {
   border-radius: 0 4em 4em 0;
-  /* max-width: 60%; */
   position: relative;
   display: flex;
   box-shadow: 10px 2px 10px rgba(0, 0, 0, 0.2);
@@ -19,7 +18,6 @@
   color: #eee;
   align-items: center;
   justify-content: space-between;
-  /* justify-content: center; */
 }
 .left .logo {
   font-size: 1.3rem;
@@ -35,21 +33,24 @@
 .hero-wrapper {
   padding: 4em 0;
   align-self: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  height: 60vh;
+
+}
+.cl-right, .cl-left {
+  height: 100%;
+}
+.cl-left {
+  justify-content: flex-end;
+}
+.cl-right {
+  justify-content: flex-start;
 }
 
 .hero-wrapper .hero {
-  align-self: flex-end;
-  flex: 1;
   width: 320px;
-  grid-row: 2;
 }
 
 .hero-wrapper .path-wrapper {
-  grid-column: 2;
-  grid-row: 1/3;
   align-self: flex-start;
 }
 
@@ -87,7 +88,7 @@
 
 .left .img-wrapper {
   border-radius: 0 4em 4em 0;
-  height: 100vh;
+  height: 100%;
 }
 .left .img-wrapper img {
   border-radius: inherit;
@@ -117,16 +118,6 @@
 
 .content input {
   width: 100%;
-}
-
-.content input::placeholder {
-  font-size: 1.3rem;
-  transition: all 0.2s;
-}
-
-.content input:active::placeholder,
-.content input:focus::placeholder {
-  color: rgba(0, 0, 0, 0.2);
 }
 
 .right .discover {

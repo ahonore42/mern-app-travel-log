@@ -13,11 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-main {
-  height: auto;
-}
-a {
-  text-decoration: none;
-  transition: all 0.2s ease;
-}

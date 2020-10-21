@@ -5,7 +5,7 @@ export default (props) => (
     type={props.type}
     name={props.name}
     value={props.value}
-    onChange={props.onChange}
+    onChange={(e) => props.onChange(e)}
     placeholder={props.placeholder}
     autoComplete="false"
   />

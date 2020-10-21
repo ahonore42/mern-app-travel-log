@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
 import TextInput from '../components/TextInput'
-import '../styles/Signup.css'
-export default class Signup extends Component {
+
+export default class Register extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
       email: '',
       password: ''
     }
@@ -21,32 +19,25 @@ export default class Signup extends Component {
     e.preventDefault()
   }
   render() {
-    const { name, password, email } = this.state
+    const { email, password } = this.state
     return (
-      <div className="signup flex-col">
+      <div className="signin flex-col">
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Email"
             name="email"
-            value={email}
             type="email"
-            onChange={this.handleChange}
-          />
-          <TextInput
-            placeholder="Your Name"
-            type="text"
-            name="name"
-            value={name}
+            value={email}
             onChange={this.handleChange}
           />
           <TextInput
             placeholder="Password"
-            type="password"
             name="password"
+            type="password"
             value={password}
             onChange={this.handleChange}
           />
-          <button>Sign Up</button>
+          <button>Sign In</button>
         </form>
       </div>
     )
