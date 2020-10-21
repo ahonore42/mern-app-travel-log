@@ -16,9 +16,15 @@ const GetPosts = async (req, res) => {
 
 const GetPostById = async (req, res) => {
   try {
-    const post = await TravelLog.findById(req.params.post_id).populate(
-      'comments'
-    )
+    const post = await TravelLog.findById(req.params.post_id).populate({
+      path: 'comments',
+      populate: {
+        path: 'user_id',
+        model: 'users',
+        select: '_id name'
+      }
+    })
+
     res.send(post)
   } catch (error) {
     throw error
