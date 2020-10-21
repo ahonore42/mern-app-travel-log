@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 
 export default class Register extends Component {
+  // TODO: Integerate AUTH
   constructor() {
     super()
     this.state = {
