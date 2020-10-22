@@ -4,7 +4,7 @@ import Card from '../components/Card'
 
 export default () => {
   return (
-    <div className="content-wrapper flex-col">
+    <div className="home content-wrapper flex-col">
       <div className="content flex-col">
         <form>
           <Search name="search" type="search" placeholder="Find New Places" />

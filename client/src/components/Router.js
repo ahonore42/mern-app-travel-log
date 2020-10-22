@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import CreatePost from '../pages/CreatePost'
+import Discover from '../pages/Discover'
 import Home from '../pages/Home'
 import LandingPage from '../pages/LandingPage'
 import Profile from '../pages/Profile'
 import SignIn from '../pages/SignIn'
 import Signup from '../pages/Signup'
 import UpdatePost from '../pages/UpdatePost'
+import ViewPost from '../pages/ViewPost'
 import { __CheckSession } from '../services/UserServices'
 import Layout from './Layout'
 import Nav from './Nav'
@@ -86,6 +88,28 @@ class Router extends Component {
                     {...props}
                   />
                 </LandingPage>
+              )}
+            />
+            <Route
+              path="/discover"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <Discover {...props} />
+                </Layout>
+              )}
+            />
+            <Route
+              path="/posts/:post_id"
+              component={(props) => (
+                <Layout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <ViewPost {...props} />
+                </Layout>
               )}
             />
             <ProtectedRoute

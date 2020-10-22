@@ -55,7 +55,10 @@
 }
 
 .path-wrapper img {
+  position: relative;
   width: 120%;
+  min-width: 380px;
+  min-width: 200px;
 }
 
 .hero-message h1 {

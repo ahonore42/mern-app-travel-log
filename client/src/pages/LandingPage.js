@@ -8,7 +8,7 @@ import Nav from '../components/Nav'
 export default ({ children }) => {
   return (
     <div className="landing-page flex-row">
-      <section className="left flex-sm flex-col">
+      <section className="left flex-lg flex-col">
         <div className="mask flex-col">
           <div className="content-wrapper flex-col">
             <h3 className="logo">Logo</h3>

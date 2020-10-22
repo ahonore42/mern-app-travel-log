@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/Nav.css'
-export default ({ authenticated, currentUser }) => {
+export default ({ authenticated, currentUser, className }) => {
   return authenticated && currentUser ? (
-    <header className="header-elevated">
+    <header className={className}>
       <div className="icon">Welcome Back {currentUser.name}</div>
       <nav>
         <NavLink activeClassName="nav-active" to="/profile">
@@ -25,7 +25,7 @@ export default ({ authenticated, currentUser }) => {
       </nav>
     </header>
   ) : (
-    <header>
+    <header className={className}>
       <div className="icon"></div>
       <nav>
         <NavLink activeClassName="nav-active" to="/discover">

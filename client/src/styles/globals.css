@@ -60,8 +60,23 @@ textarea:focus::placeholder {
 }
 
 button {
-  font-size: 1.3rem;
-  transition: all 0.2s;
+  background-color: #ff7043;
+  padding: .4em 2em;
+  border-radius: .5em;
+  color: #eee;
+  font-weight: 700;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffa270;
+  color: #333;
+}
+
+li {
+  list-style: none;
 }
 
 .header-elevated {
