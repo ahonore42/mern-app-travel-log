@@ -42,6 +42,7 @@ class Router extends Component {
         )
       } catch (error) {
         this.setState({ currentUser: null, authenticated: false })
+        localStorage.clear()
       }
       // Send Api request to verify token
       // if token valid should set a user to state

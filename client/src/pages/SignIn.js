@@ -3,7 +3,6 @@ import TextInput from '../components/TextInput'
 import { __LoginUser } from '../services/UserServices'
 
 export default class SignIn extends Component {
-  // TODO: Integerate AUTH
   constructor() {
     super()
     this.state = {
@@ -21,7 +20,7 @@ export default class SignIn extends Component {
     e.preventDefault()
     try {
       const loginData = await __LoginUser(this.state)
-      console.log(loginData)
+      // console.log(loginData)
       this.props.toggleAuthenticated(true, loginData.user, () =>
         this.props.history.push('/profile')
       )
