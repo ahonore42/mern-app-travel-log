@@ -32,8 +32,7 @@ export default class Discover extends Component {
     )
 
   render() {
-    const { posts, currentPage } = this.state
-    console.log(currentPage)
+    const { posts } = this.state
     return (
       <div className="discover wrapper">
         <h2>Popular Posts</h2>

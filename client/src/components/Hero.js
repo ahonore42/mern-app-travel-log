@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default () => {
   return (
@@ -8,7 +9,7 @@ export default () => {
         <p>Travelling is so much fun, tell your friends all about it!</p>
       </div>
       <div className="hero-action">
-        <a href="">Get Started</a>
+        <Link to="/register">Get Started</Link>
       </div>
     </div>
   )

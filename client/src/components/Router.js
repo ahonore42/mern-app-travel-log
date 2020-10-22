@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import CreatePost from '../pages/CreatePost'
 import Discover from '../pages/Discover'
 import Home from '../pages/Home'
@@ -11,7 +11,6 @@ import UpdatePost from '../pages/UpdatePost'
 import ViewPost from '../pages/ViewPost'
 import { __CheckSession } from '../services/UserServices'
 import Layout from './Layout'
-import Nav from './Nav'
 import ProtectedRoute from './ProtectedRoute'
 
 class Router extends Component {

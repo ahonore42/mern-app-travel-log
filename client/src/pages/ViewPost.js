@@ -17,7 +17,6 @@ export default class ViewPost extends Component {
   getPost = async () => {
     try {
       const post = await __GetPost(this.props.match.params.post_id)
-      console.log(post)
       this.setState({ post })
     } catch (error) {
       console.log(error)
