@@ -30,12 +30,12 @@ const posts = new Array(100).fill().map(() => ({
 }))
 
 const seed = async () => {
-  await connection
+  await connection.connect
   await User.insertMany(users)
   await TravelLog.insertMany(posts)
   await Comment.insertMany(comments)
-  //   await connection
-  return 'done'
+  await connection.disconnect
+  process.exit()
 }
 
 seed()

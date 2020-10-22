@@ -14,13 +14,11 @@ const verifyToken = (req, res, next) => {
     if (err) {
       return res.status(401).json({ msg: 'Invalid Token' })
     }
-    return req.query.active && req.query.active === 'true'
-      ? next()
-      : res.send(t)
+    return req.query.active ? next() : res.send(t)
   })
 }
 
-const createToken = (req, res, next) => {
+const createToken = (req, res) => {
   const token = jwt.sign(res.locals.payload, secretKey)
   res.send({ user: res.locals.payload, token })
 }

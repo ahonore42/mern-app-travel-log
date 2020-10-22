@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
 import TextInput from '../components/TextInput'
 import '../styles/Signup.css'
 export default class Signup extends Component {

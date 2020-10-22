@@ -1,4 +1,4 @@
-const { User } = require('../db/schema')
+const { User, TravelLog } = require('../db/schema')
 const {
   checkPassword,
   generatePassword
@@ -7,7 +7,8 @@ const {
 const GetProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.user_id).select('_id name')
-    res.send(user)
+    const posts = await TravelLog.find({ user_id: req.params.user_id })
+    res.send({ user, posts })
   } catch (error) {
     throw error
   }

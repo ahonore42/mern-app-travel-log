@@ -16,14 +16,21 @@ const GetPosts = async (req, res) => {
 
 const GetPostById = async (req, res) => {
   try {
-    const post = await TravelLog.findById(req.params.post_id).populate({
-      path: 'comments',
-      populate: {
+    const post = await TravelLog.findById(req.params.post_id).populate([
+      {
         path: 'user_id',
         model: 'users',
         select: '_id name'
+      },
+      {
+        path: 'comments',
+        populate: {
+          path: 'user_id',
+          model: 'users',
+          select: '_id name'
+        }
       }
-    })
+    ])
 
     res.send(post)
   } catch (error) {
@@ -45,6 +52,7 @@ const DeletePost = async (req, res) => {
   try {
     const post = await TravelLog.findById(req.params.post_id)
     await Comment.deleteMany({ _id: { $in: post.comments } })
+    await TravelLog.findByIdAndDelete(req.params.post_id)
     res.send({ msg: 'Post deleted' })
   } catch (error) {
     throw error
