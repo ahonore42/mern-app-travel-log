@@ -9,6 +9,15 @@ export const __GetProfile = async (userId) => {
   }
 }
 
+export const __RegisterUser = async (formData) => {
+  try {
+    const res = await ApiClient.post('/users/register', formData)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const __CheckSession = async () => {
   try {
     const res = await ApiClient.get('/users/refresh/session')

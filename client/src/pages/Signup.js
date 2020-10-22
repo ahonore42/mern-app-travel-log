@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
+import { __RegisterUser } from '../services/UserServices'
 import '../styles/Signup.css'
 export default class Signup extends Component {
   // TODO Integrate Auth
@@ -19,6 +20,12 @@ export default class Signup extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      await __RegisterUser(this.state)
+      this.props.history.push('/login')
+    } catch (error) {
+      console.log(error)
+    }
   }
   render() {
     const { name, password, email } = this.state
