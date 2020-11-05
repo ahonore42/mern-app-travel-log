@@ -2,7 +2,7 @@ const { User, TravelLog } = require('../db/schema')
 const {
   checkPassword,
   generatePassword
-} = require('../middleware/PasswordHandler')
+} = require('../middleware/PasswordHandler') // delet this
 
 const GetProfile = async (req, res) => {
   try {
@@ -17,7 +17,7 @@ const GetProfile = async (req, res) => {
 const CreateUser = async (req, res) => {
   try {
     const body = req.body
-    const password_digest = await generatePassword(body.password)
+    const password_digest = await generatePassword(body.password)  // password_digest = req.body.password
     const user = new User({
       name: body.name,
       email: body.email,
@@ -36,14 +36,14 @@ const SignInUser = async (req, res, next) => {
     console.log(user)
     if (
       user &&
-      (await checkPassword(req.body.password, user.password_digest))
+      (await checkPassword(req.body.password, user.password_digest)) // if (user&&user.password_digest===req.body.password)
     ) {
       const payload = {
         _id: user._id,
         name: user.name
       }
-      res.locals.payload = payload
-      return next()
+      res.locals.payload = payload // res.send(payload)
+      return next()  // no next
     }
     res.status(401).send({ msg: 'Unauthorized' })
   } catch (error) {
