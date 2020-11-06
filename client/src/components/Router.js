@@ -9,7 +9,7 @@ import SignIn from '../pages/SignIn'
 import Signup from '../pages/Signup'
 import UpdatePost from '../pages/UpdatePost'
 import ViewPost from '../pages/ViewPost'
-import { __CheckSession } from '../services/UserServices'
+import { __CheckSession } from '../services/UserServices' // auth only, remove
 import Layout from './Layout'
 import ProtectedRoute from './ProtectedRoute'
 
@@ -25,11 +25,11 @@ class Router extends Component {
 
   componentDidMount() {
     //invoke verifyTokenValid request
-    this.verifyTokenValid()
+    this.verifyTokenValid()       // auth only
     this.setState({ pageLoading: false })
   }
 
-  verifyTokenValid = async () => {
+  verifyTokenValid = async () => {    // remove, auth only
     const token = localStorage.getItem('token')
     if (token) {
       try {
