@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const ApiClient = axios.create({ baseURL: 'http://localhost:3001/api' })
 
-ApiClient.interceptors.request.use(
+ApiClient.interceptors.request.use(       // OMIT this for auth
   async (config) => {
     const token = localStorage.getItem('token')
     if (token) {
